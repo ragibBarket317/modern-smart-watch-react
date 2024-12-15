@@ -1,4 +1,6 @@
-const CartModal = () => {
+const CartModal = ({ setViewCartModal, totalItemCount, cartItems }) => {
+  console.log('cartItems', cartItems)
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0)
   return (
     <>
       <div
@@ -30,45 +32,66 @@ const CartModal = () => {
               </tr>
             </thead>
             <tbody id="cartItems">
+              {cartItems.map((item, index) => (
+                <tr key={index}>
+                  <td className="border-b py-2 w-[50%] ">
+                    <div className="flex items-center space-x-2">
+                      <img
+                        src={`./${item.color}.png`}
+                        alt=""
+                        className="w-[36px] h-[36px] rounded-[3px]"
+                      />
+                      <h3 className="text-[14px] text-[#364A63]">
+                        Classy Modern Smart Watch
+                      </h3>
+                    </div>
+                  </td>
+                  <td className="border-b py-2 text-center text-[14px] text-[#364A63] capitalize">
+                    {item.color}
+                  </td>
+                  <td className="border-b py-2 text-center text-[14px] text-[#364A63] font-bold">
+                    {item.size.size}
+                  </td>
+                  <td className="border-b py-2 text-center text-[14px] text-[#364A63] font-bold">
+                    {item.quantity}
+                  </td>
+                  <td className="border-b py-2 text-end text-[14px] text-[#364A63] font-bold">
+                    ${item.price}
+                  </td>
+                </tr>
+              ))}
               <tr>
-                <td className="border-b py-2">Testing</td>
-                <td className="border-b py-2 text-center text-[14px] text-[#364A63] capitalize">
-                  Purple
+                <td className=" py-2">
+                  <p className=" text-[16px] text-[#373737] font-bold">Total</p>
                 </td>
-                <td className="border-b py-2 text-center text-[14px] text-[#364A63] font-bold">
-                  S
+                <td className=" py-2 text-center text-[14px] text-[#364A63] capitalize"></td>
+                <td className=" py-2 text-center text-[14px] text-[#364A63] font-bold"></td>
+                <td className=" py-2 text-center text-[14px] text-[#364A63] font-bold">
+                  <p
+                    id="totalQuantity"
+                    className="text-[14px] text-[#364A63] text-center font-bold"
+                  >
+                    {totalItemCount}
+                  </p>
                 </td>
-                <td className="border-b py-2 text-center text-[14px] text-[#364A63] font-bold">
-                  3
-                </td>
-                <td className="border-b py-2 text-end text-[14px] text-[#364A63] font-bold">
-                  $78
+                <td className=" py-2 text-end text-[14px] text-[#364A63] font-bold">
+                  <p
+                    id="totalPrice"
+                    className="text-[15px] md:text-[18px] text-[#364A63] font-bold"
+                  >
+                    ${totalPrice}
+                  </p>
                 </td>
               </tr>
             </tbody>
           </table>
-          <div className="mt-4 flex">
-            <p className="w-[78%] md:w-[83%] text-[16px] text-[#373737] font-bold">
-              Total
-            </p>
-            <div className="w-[22%] md:w-[17%] flex justify-between">
-              <p
-                id="totalQuantity"
-                className="text-[14px] text-[#364A63] text-center font-bold"
-              >
-                4
-              </p>
-              <p
-                id="totalPrice"
-                className="text-[15px] md:text-[18px] text-[#364A63] font-bold"
-              >
-                $00.00
-              </p>
-            </div>
-          </div>
+
           <div className="mt-4 flex justify-end">
             <div>
-              <button className="px-[18px] py-[8px] rounded-[3px] border-[1px] text-[13px] text-[#364A63] font-bold mr-[10px]">
+              <button
+                onClick={() => setViewCartModal(false)}
+                className="px-[18px] py-[8px] rounded-[3px] border-[1px] text-[13px] text-[#364A63] font-bold mr-[10px]"
+              >
                 Continue Shopping
               </button>
               <button className="bg-[#6576FF] px-[18px] py-[8px] rounded-[3px] text-[13px] border-[#364A63] text-white font-bold">
