@@ -1,8 +1,26 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Classy Modern Smart Watch(React Version)
 
-Currently, two official plugins are available:
+## Live Link
+[https://modern-smart-watch-react.vercel.app](https://modern-smart-watch-react.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+The Classy Modern Smart Watch project is a responsive front-end application showcasing an interactive and dynamic product page for a smartwatch. This project highlights user-centric features and was developed using modern web technologies.
+
+## Technology Stack
+- **Frontend**: React.js, Tailwind CSS.
+
+## Features
+
+### Dynamic Thumbnail Change
+- The main product thumbnail updates dynamically based on the selected band color.
+
+### Floating Checkout Button
+- Clicking "Add to Cart" displays a floating checkout button with a live item count.
+
+### Cart Modal Preview
+- Clicking the floating checkout button opens a modal preview of "Your Cart."
+- The modal includes details such as product photo, color, size, quantity, and price.
+
+### Real-Time Cart Updates
+- The cart modal dynamically updates to reflect the selected product details and quantities.
